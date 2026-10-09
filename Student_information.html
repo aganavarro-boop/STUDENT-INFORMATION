@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information Form</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            color-scheme: light;
+            --cream: #F7F3EE;
+            --burgundy: #800020;
+            --hotpink: #FF69B4;
+            --border: #e6b8c9;
+            --ink: #4a1024;
+            --muted: #76545f;
+            font-family: "Poppins", sans-serif;
+            color: var(--ink);
+            background: var(--cream);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 48px 18px;
+            background: radial-gradient(ellipse at top, #fffaf7 0%, var(--cream) 65%);
+        }
+
+        main {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 38px;
+            background: #fffdfb;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            box-shadow: 0 18px 48px #78676518;
+        }
+
+        h1 {
+            margin: 0 0 8px;
+            color: var(--burgundy);
+            font-size: clamp(1.7rem, 4vw, 2.15rem);
+            font-weight: 700;
+            letter-spacing: -0.04em;
+        }
+
+        .intro {
+            margin: 0 0 30px;
+            color: var(--muted);
+        }
+
+        form {
+            display: grid;
+            gap: 21px;
+        }
+
+        .field {
+            display: grid;
+            gap: 8px;
+        }
+
+        label,
+        legend {
+            font-size: 0.94rem;
+            font-weight: 600;
+        }
+
+        input:not([type="radio"]):not([type="checkbox"]),
+        select {
+            width: 100%;
+            min-height: 48px;
+            padding: 11px 14px;
+            border: 1px solid var(--border);
+            border-radius: 11px;
+            background: #fff;
+            color: var(--ink);
+            font: inherit;
+            transition: border-color 160ms ease, box-shadow 160ms ease;
+        }
+
+        input[type="file"] {
+            padding: 9px;
+            font-size: 0.9rem;
+        }
+
+        input[type="file"]::file-selector-button {
+            margin-right: 12px;
+            padding: 8px 12px;
+            border: 0;
+            border-radius: 8px;
+            background: var(--cream);
+            color: var(--ink);
+            font: inherit;
+            cursor: pointer;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--hotpink);
+            box-shadow: 0 0 0 4px #FF69B433;
+        }
+
+        fieldset {
+            min-width: 0;
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        legend {
+            margin-bottom: 10px;
+        }
+
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 20px;
+        }
+
+        .option {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 400;
+            cursor: pointer;
+        }
+
+        .option input {
+            width: 17px;
+            height: 17px;
+            accent-color: var(--hotpink);
+        }
+
+        button {
+            min-height: 49px;
+            margin-top: 4px;
+            padding: 12px 20px;
+            border: 0;
+            border-radius: 12px;
+            background: var(--burgundy);
+            color: #fff;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 7px 16px #80002033;
+            transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+        }
+
+        button:hover {
+            transform: translateY(-1px);
+            background: var(--hotpink);
+            color: var(--burgundy);
+            box-shadow: 0 9px 20px #FF69B455;
+        }
+
+        button:focus-visible {
+            outline: 3px solid var(--hotpink);
+            outline-offset: 3px;
+        }
+
+        @media (max-width: 520px) {
+            body {
+                padding: 22px 12px;
+            }
+
+            main {
+                padding: 26px 20px;
+                border-radius: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Student Information</h1>
+        <p class="intro">Please complete the form below.</p>
+
+        <form action="#" method="post" enctype="multipart/form-data">
+            <div class="field">
+                <label for="full-name">Full Name</label>
+                <input type="text" id="full-name" name="fullName" autocomplete="name" required>
+            </div>
+
+            <div class="field">
+                <label for="student-id">Student ID</label>
+                <input type="text" id="student-id" name="studentId" inputmode="numeric" autocomplete="off" required>
+            </div>
+
+            <div class="field">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+
+            <div class="field">
+                <label for="date-of-birth">Date of Birth</label>
+                <input type="date" id="date-of-birth" name="dateOfBirth" required>
+            </div>
+
+            <fieldset>
+                <legend>Gender</legend>
+                <div class="options">
+                    <label class="option"><input type="radio" name="gender" value="male" required> Male</label>
+                    <label class="option"><input type="radio" name="gender" value="female"> Female</label>
+                    <label class="option"><input type="radio" name="gender" value="other"> Other</label>
+                </div>
+            </fieldset>
+
+            <div class="field">
+                <label for="course">Course</label>
+                <select id="course" name="course" required>
+                    <option value="" disabled selected>Select a course</option>
+                    <option value="computer-science">Computer Science</option>
+                    <option value="information-technology">Information Technology</option>
+                    <option value="business-administration">Business Administration</option>
+                    <option value="nursing">Nursing</option>
+                    <option value="education">Education</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="year-level">Year Level</label>
+                <select id="year-level" name="yearLevel" required>
+                    <option value="" disabled selected>Select a year level</option>
+                    <option value="1st-year">1st year</option>
+                    <option value="2nd-year">2nd year</option>
+                    <option value="3rd-year">3rd year</option>
+                    <option value="4th-year">4th year</option>
+                </select>
+            </div>
+
+            <fieldset>
+                <legend>Hobbies</legend>
+                <div class="options">
+                    <label class="option"><input type="checkbox" name="hobbies" value="reading"> Reading</label>
+                    <label class="option"><input type="checkbox" name="hobbies" value="sports"> Sports</label>
+                    <label class="option"><input type="checkbox" name="hobbies" value="music"> Music</label>
+                    <label class="option"><input type="checkbox" name="hobbies" value="gaming"> Gaming</label>
+                    <label class="option"><input type="checkbox" name="hobbies" value="others"> Others</label>
+                </div>
+            </fieldset>
+
+            <div class="field">
+                <label for="profile-picture">Upload Profile Picture</label>
+                <input type="file" id="profile-picture" name="profilePicture" accept="image/*">
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+</body>
+
+</html>
